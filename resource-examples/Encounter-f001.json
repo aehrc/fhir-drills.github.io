@@ -48,7 +48,7 @@
     "system": "http://unitsofmeasure.org",
     "code": "min"
   },
-  "reason": [
+  "reasonCode": [
     {
       "coding": [
         {
