@@ -63,13 +63,14 @@
       </table> 
     </div>
   </text>
-  <url value="urn:uuid:65fb1d8a-0dde-11e6-a148-3e1d05defe78"/>
+  <url value="http://acme.com/identifiers/valuesets/ACMEPathology"/>
   <identifier>
-    <system value="http://acme.com/identifiers/valuesets/ACMEPathology"/>
-    <value value="ACMEPathologyHepatitisBOrdering"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:uuid:65fb1d8a-0dde-11e6-a148-3e1d05defe78"/>
   </identifier>
   <version value="20160530"/>
-  <name value="ACME Pathology ordering codes for Hepatitis B testing"/>
+  <title value="ACME Pathology ordering codes for Hepatitis B testing"/>
+  <name value="ACMEPathologyHepatitisBOrdering"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="Australian Digital Health Agency"/>
@@ -85,7 +86,7 @@
   <compose>
     <lockedDate value="2016-05-30"/>
     <include>
-      <system value="http://fhir3.healthintersections.com.au/open/CodeSystem/5"/>
+      <system value="http://acme.com/identifiers/codesystems/ACMEPathology"/>
       <version value="20160429"/>
       <concept>
         <code value="HepBCIgMAb"/>

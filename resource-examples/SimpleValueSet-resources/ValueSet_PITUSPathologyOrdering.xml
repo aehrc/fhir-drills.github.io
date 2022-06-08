@@ -3931,13 +3931,14 @@
             </table> 
         </div>
     </text>
-    <url value="urn:uuid:a4c4a663-b371-4230-909d-068ac6ddb1e1"/>
+    <url value="http://acme.com/identifiers/valuesets/ACMEPathology"/>
     <identifier>
-        <system value="http://acme.com/identifiers/valuesets/ACMEPathology"/>
-        <value value="PITUSPathologyOrdering"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:uuid:a4c4a663-b371-4230-909d-068ac6ddb1e1"/>
     </identifier>
     <version value="20160530"/>
-    <name value="PITUS Pathology ordering codes"/>
+    <title value="PITUS Pathology ordering codes"/>
+    <name value="PITUSPathologyOrdering"/>
     <status value="draft"/>
     <experimental value="true"/>
     <publisher value="Australian Digital Health Agency"/>

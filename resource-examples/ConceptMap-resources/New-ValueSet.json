@@ -32,7 +32,8 @@
     ]
   },
   "date": "2016-06-27",
-  "name": "New, better valueset describing a persons work state",
+  "title": "New, better valueset describing a persons work state",
+  "name": "NewWorkState",
   "experimental": true,
   "version": "2016-06-27",
   "description": "This new and improved valueset allows to more accurately describe a persons work state",

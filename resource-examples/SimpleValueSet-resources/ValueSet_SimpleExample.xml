@@ -20,7 +20,7 @@
   </text>
   <url value="urn:uuid:8ec3847e-789e-4994-a74b-7bbf55d88190"/>  
   <version value="20160530"/>
-  <name value="FHIR tutorial difficulty levels"/>
+  <title value="FHIR tutorial difficulty levels"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="Australian Digital Health Agency"/>
@@ -36,7 +36,7 @@
   <compose>
     <lockedDate value="2016-06-27"/>
     <include>
-      <system value="http://fhir3.healthintersections.com.au/open/CodeSystem/5"/>
+      <system value="urn:uuid:c4a698d9-6749-4c2a-abd3-9d2eb9e8e0a1"/>
       <version value="20162726"/>
       <concept>
         <code value="easy"/>        

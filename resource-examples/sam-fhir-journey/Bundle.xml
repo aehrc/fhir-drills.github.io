@@ -14,7 +14,7 @@
         <identifier>
           <type>
             <coding>
-              <system value='http://hl7.org/fhir/v2/0203'/>
+              <system value='http://terminology.hl7.org/CodeSystem/v2-0203'/>
               <code value='NI'/>
               <display value='National unique individual identifier'/>
             </coding>
@@ -27,7 +27,7 @@
           <use value='usual'/>
           <type>
             <coding>
-              <system value='http://hl7.org/fhir/v2/0203'/>
+              <system value='http://terminology.hl7.org/CodeSystem/v2-0203'/>
               <code value='MR'/>
             </coding>
           </type>
@@ -64,7 +64,7 @@
         </address>
         <maritalStatus>
           <coding>
-            <system value='http://hl7.org/fhir/v3/MaritalStatus'/>
+            <system value='http://terminology.hl7.org/CodeSystem/v3-MaritalStatus'/>
             <code value='M'/>
             <display value='Married'/>
           </coding>
@@ -81,7 +81,12 @@
     <resource>
       <AllergyIntolerance xmlns='http://hl7.org/fhir'>
         <id value='allergyintolerance'/>
-        <status value='active'/>
+        <clinicalStatus>
+          <coding>
+            <system value='http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical'/>
+            <code value='active'/>
+          </coding>
+        </clinicalStatus>
         <type value='allergy'/>
         <criticality value='high'/>
         <code>
@@ -110,13 +115,13 @@
       <Appointment xmlns='http://hl7.org/fhir'>
         <id value='appointment'/>
         <status value='fulfilled'/>
-        <reason>
+        <reasonCode>
           <coding>
-            <system value='http://hl7.org/fhir/ValueSet/encounter-reason'/>
+            <system value='http://snomed.info/sct'/>
             <code value='274640006'/>
             <display value='Fever with chills (finding)'/>
           </coding>
-        </reason>
+        </reasonCode>
         <description value='Mr Fhirman has been experiencing an very high temperature for two days and his wife insisted that he make an appointment.'/>
         <start value='2016-10-31T08:00:00+10:00'/>
         <end value='2016-10-31T08:30:00+10:00'/>
@@ -140,13 +145,13 @@
         <id value='encounter'/>
         <status value='finished'/>
         <class>
-          <system value='http://hl7.org/fhir/ValueSet/v3-ActEncounterCode'/>
+          <system value='http://terminology.hl7.org/CodeSystem/v3-ActCode'/>
           <code value='NONAC'/>
           <display value='inpatient non-acute'/>
         </class>
         <priority>
           <coding>
-            <system value='http://hl7.org/fhir/ValueSet/v3-ActPriority'/>
+            <system value='http://terminology.hl7.org/CodeSystem/v3-ActPriority'/>
             <code value='R'/>
             <display value='routine'/>
           </coding>
@@ -157,7 +162,7 @@
         <participant>
           <type>
             <coding>
-              <system value='http://hl7.org/fhir/ValueSet/encounter-participant-type'/>
+              <system value='http://terminology.hl7.org/CodeSystem/v3-ParticipationType'/>
               <code value='PPRF'/>
               <display value='primary performer'/>
             </coding>
@@ -173,13 +178,13 @@
           <start value='2016-10-31T08:07:00+10:00'/>
           <end value='2016-10-31T08:28:00+10:00'/>
         </period>
-        <reason>
+        <reasonCode>
           <coding>
-            <system value='http://hl7.org/fhir/ValueSet/encounter-reason'/>
+            <system value='http://snomed.info/sct'/>
             <code value='274640006'/>
             <display value='Fever with chills (finding)'/>
           </coding>
-        </reason>
+        </reasonCode>
         <serviceProvider>
           <reference value='Organization/hospital-organization'/>
         </serviceProvider>
@@ -201,11 +206,6 @@
           <prefix value='Dr.'/>
         </name>
         <gender value='male'/>
-        <role>
-          <organization>
-            <reference value='Organization/hospital-organization'/>
-          </organization>
-        </role>
       </Practitioner>
     </resource>
     <request>
@@ -214,9 +214,26 @@
     </request>
   </entry>
   <entry>
-    <fullUrl value='ProcedureRequest/procedurecrequest'/>
+    <fullUrl value='PractitionerRole/practitionerRole'/>
     <resource>
-      <ProcedureRequest xmlns='http://hl7.org/fhir'>
+      <PractitionerRole>
+        <practitioner>
+          <reference value='Practitioner/practitioner'/>
+        </practitioner>
+        <organization>
+          <reference value='Organization/hospital-organization'/>
+        </organization>
+      </PractitionerRole>
+    </resource>
+    <request>
+      <method value='PUT'/>
+      <url value='PractitionerRole/practitionerRole'/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value='ServiceRequest/servicerequest'/>
+    <resource>
+      <ServiceRequest xmlns='http://hl7.org/fhir'>
         <id value='procedurerequest'/>
         <status value='completed'/>
         <code>
@@ -229,23 +246,22 @@
         <subject>
           <reference value='Patient/patient'/>
         </subject>
-        <context>
+        <encounter>
           <reference value='Encounter/encounter'/>
-        </context>
+        </encounter>
         <authoredOn value='2016-10-31T08:25:00+10:00'/>
         <requester>
-            <agent>
-                <reference value='Practitioner/practitioner'/>
-            </agent>
+          <reference value='Practitioner/practitioner'/>
         </requester>
         <performer>
           <reference value='Organization/pathlab'/>
         </performer>
-      </ProcedureRequest>
+        <intent value='original-order'/>
+      </ServiceRequest>
     </resource>
     <request>
       <method value='PUT'/>
-      <url value='ProcedureRequest/procedurerequest'/>
+      <url value='ServiceRequest/servicerequest'/>
     </request>
   </entry>
   <entry>
@@ -259,15 +275,9 @@
           <value value='http://example.com/fhir/Task/163412'/>
         </identifier>
         <status value='completed'/>
-        <stage>
-          <coding>
-            <system value='http://hl7.org/fhir/ValueSet/task-stage'/>
-            <code value='actionable'/>
-            <display value='actionable'/>
-          </coding>
-        </stage>
-        <priority value='normal'/>
-        <created value='2016-10-31T08:25:05+10:00'/>
+        <priority value='routine'/>
+        <intent value='original-order'/>
+        <authoredOn value='2016-10-31T08:25:05+10:00'/>
         <lastModified value='2016-10-31T09:45:05+10:00'/>
         <requester>
           <reference value='Practitioner/practitioner'/>
@@ -281,7 +291,7 @@
             </coding>
           </type>
           <valueReference>
-            <reference value='ProcedureRequest/procedurerequest'/>
+            <reference value='ServiceRequest/servicerequest'/>
           </valueReference>
         </input>
         <output>
@@ -324,9 +334,9 @@
         <performer>
           <reference value='Organization/pathlab'/>
         </performer>
-        <request>
-          <reference value='ProcedureRequest/procedurerequest'/>
-        </request>
+        <basedOn>
+          <reference value='ServiceRequest/servicerequest'/>
+        </basedOn>
         <result>
           <reference value='Observation/path-lab-observation'/>
         </result>
@@ -345,7 +355,7 @@
         <status value='final'/>
         <category>
           <coding>
-            <system value='http://hl7.org/fhir/ValueSet/observation-category'/>
+            <system value='http://terminology.hl7.org/CodeSystem/observation-category'/>
             <code value='laboratory'/>
             <display value='Laboratory'/>
           </coding>
@@ -375,7 +385,7 @@
         <id value='hospital-organization'/>
         <type>
           <coding>
-            <system value='http://hl7.org/fhir/ValueSet/organization-type'/>
+            <system value='http://terminology.hl7.org/CodeSystem/organization-type'/>
             <code value='dept'/>
             <display value='Hospital Department'/>
           </coding>
@@ -406,7 +416,7 @@
         <id value='pathlab'/>
         <type>
           <coding>
-            <system value='http://hl7.org/fhir/ValueSet/organization-type'/>
+            <system value='http://terminology.hl7.org/CodeSystem/organization-type'/>
             <code value='prov'/>
             <display value='Healthcare Provider'/>
           </coding>

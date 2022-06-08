@@ -20,7 +20,8 @@
   </text>
   <url value="urn:uuid:c4a698d9-6749-4c2a-abd3-9d2eb9e8e0a1"/>  
   <version value="20162726"/>
-  <name value="FHIR tutorial difficulty levels"/>
+  <title value="FHIR tutorial difficulty levels"/>
+  <name value="DifficultyLevels"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="Australian Digital Health Agency"/>

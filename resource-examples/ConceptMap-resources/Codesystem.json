@@ -45,7 +45,8 @@
   "url": "urn:uuid:bb6efb79-2b93-4569-a51e-6fcf103b6e9a",
   "description": "Codesystem describing various codes for making people's work presence",
   "version": "2016-06-27",
-  "name": "Old and new work statuses",
+  "title": "Old and new work statuses",
+  "name": "WorkStatuses",
   "contact": [
     {
       "telecom": [

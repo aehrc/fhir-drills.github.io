@@ -2,7 +2,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
     <url value="urn:uuid:bb6efb79-2b93-4569-a51e-6fcf103b6e9a"/>
     <version value="2016-06-27"/>
-    <name value="Old and new work statuses"/>
+    <title value="Old and new work statuses"/>
+    <name value="WorkStatuses"/>
     <status value="draft"/>
     <experimental value="true"/>
     <publisher value="Australian Digital Health Agency"/>

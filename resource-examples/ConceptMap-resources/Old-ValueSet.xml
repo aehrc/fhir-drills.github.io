@@ -1,7 +1,8 @@
 <ValueSet xmlns="http://hl7.org/fhir">
     <url value="urn:uuid:a5f94e22-ddba-474e-80e3-b067d9c27a55"/>
     <version value="2016-06-27"/>
-    <name value="Old valueset describing a persons work state"/>
+    <title value="Old valueset describing a persons work state"/>
+    <name value="OldWorkState" />
     <status value="draft"/>
     <experimental value="true"/>
     <publisher value="Australian Digital Health Agency"/>

@@ -23,7 +23,8 @@
     ]
   },
   "date": "2016-06-27",
-  "name": "Old valueset describing a persons work state",
+  "title": "Old valueset describing a persons work state",
+  "name": "OldWorkState",
   "experimental": true,
   "version": "2016-06-27",
   "description": "Very simple valueset for recording a persons work state",

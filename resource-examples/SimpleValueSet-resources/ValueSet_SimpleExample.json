@@ -15,12 +15,12 @@
             "code": "hard"
           }
         ],
-        "system": "http://fhir3.healthintersections.com.au/open/CodeSystem/5"
+        "system": "urn:uuid:c4a698d9-6749-4c2a-abd3-9d2eb9e8e0a1"
       }
     ]
   },
   "date": "2016-06-27",
-  "name": "FHIR tutorial difficulty levels",
+  "title": "FHIR tutorial difficulty levels",
   "experimental": true,
   "version": "20160530",
   "meta": {
