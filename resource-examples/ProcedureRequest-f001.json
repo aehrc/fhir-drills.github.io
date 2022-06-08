@@ -1,5 +1,5 @@
 {  
-   "resourceType":"ProcedureRequest",
+   "resourceType":"ServiceRequest",
    "id":"digitalhealth-f001",
    "identifier":[  
       {  
@@ -12,14 +12,11 @@
       "reference":"Patient/digitalhealth-f001",
       "display":"P. van den Heuvel"
    },
-   "requester":[  
+   "requester":  
       {
-          "agent":{
                 "reference":"#practitionerid",
                 "display":"Dr. Adam Careful"
-          }
-      }
-   ],
+      },
    "contained":[  
       {  
          "resourceType":"Practitioner",
@@ -46,7 +43,7 @@
          ]
       }
    ],
-   "context":{ 
+   "encounter":{ 
       "reference":"Encounter/digitalhealth-f001"
    },
    "reasonCode":[  
@@ -62,5 +59,7 @@
 			  "display":"Complete blood count (hemogram) panel - Blood by Automated count"
 		   }
 		]
-	 }
+	 },
+    "status": "active",
+    "intent": "original-order"
 }
