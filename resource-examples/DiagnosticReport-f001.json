@@ -43,7 +43,7 @@
   "issued": "2013-05-15T19:32:52+01:00",  
   "basedOn": [
     {
-      "reference": "ProcedureRequest/digitalhealth-f001"
+      "reference": "ServiceRequest/digitalhealth-f001"
     }
   ],
   "result": [

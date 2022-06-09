@@ -234,7 +234,7 @@
     <fullUrl value='ServiceRequest/servicerequest'/>
     <resource>
       <ServiceRequest xmlns='http://hl7.org/fhir'>
-        <id value='procedurerequest'/>
+        <id value='servicerequest'/>
         <status value='completed'/>
         <code>
           <coding>
