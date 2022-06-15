@@ -118,8 +118,8 @@
                     <div class="mdl-card mdl-cell mdl-cell--12-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
                         <div class="mdl-card__supporting-text">
                         <h4>ConceptMap tutorial</h4>
-                        <p><a href="http://hl7.org/fhir/STU3/conceptmap.html">ConceptMap</a> is a FHIR resource that allows you to establish a one-way map between codes. We'll use latter as an example in this tutorial to demonstrate how two concepts can be related (mapped) to each other and how their equivalence (or lack of) can be specified.</p>
-                        <note>This describes ConceptMap as it is in the <a href="http://hl7.org/fhir/STU3/conceptmap.html">FHIR STU3</a></note>
+                        <p><a href="http://hl7.org/fhir/R4B/conceptmap.html">ConceptMap</a> is a FHIR resource that allows you to establish a one-way map between codes. We'll use latter as an example in this tutorial to demonstrate how two concepts can be related (mapped) to each other and how their equivalence (or lack of) can be specified.</p>
+                        <note>This describes ConceptMap as it is in the <a href="http://hl7.org/fhir/R4B/conceptmap.html">FHIR R4B</a>. It should be noted, however, that fairly substantial changes are anticipated for ConceptMap in the next release!</note>
                         <ul class="toc">
                             <h4>Contents</h4>
                             <!-- pr prefix stands for 'patient references'-->
@@ -131,7 +131,7 @@
                         </ul>
 
                         <h5 id="cm-about-conceptmap">Step 1: About ConceptMap</h5>
-                        <p>The <a href="http://hl7.org/fhir/STU3/conceptmap.html">ConceptMap</a> resource in general has <a href="images/conceptmap-overview.png" data-lightbox="conceptmap-overview">four parts</a> to it: 
+                        <p>The <a href="http://hl7.org/fhir/R4B/conceptmap.html">ConceptMap</a> resource in general has <a href="images/conceptmap-overview.png" data-lightbox="conceptmap-overview">four parts</a> to it: 
                           <p>
                           <li>Metadata about the resource</li> 
                           <li>The source of the data</li> 
@@ -142,7 +142,7 @@
                         <p><b>Metadata</b> describes general information about the mapping - who made it, what version it is, copyright...etc.</p>
                         <p><b>Source</b> is a reference to the ValueSet that you are mapping from. Remember that ConceptMap is a one-way mapping so there's always a clear source and a target.</p>
                         <p><b>Target</b> is similar to source - it is a reference to the ValueSet you are mapping to.</p>
-                        <p><b>Mappings</b> are the translations themselves, organised in groups. Each mapping (called an 'element' in the data) can have one or more <b>target</b> elements, which specify a connection between a code from one ValueSet to code(s) in another ValueSet. The type/strength of connection is described by the <b>equivalence</b> property. The equivalence expresses that the two elements are exactly the same, wider than, narrower than or the two concepts aren't related at all. The full list of equivalence values is available in the <a href="http://hl7.org/fhir/STU3/valueset-concept-map-equivalence.html">ConceptMap Equivalence</a> ValueSet.</p>
+                        <p><b>Mappings</b> are the translations themselves, organised in groups. Each mapping (called an 'element' in the data) can have one or more <b>target</b> elements, which specify a connection between a code from one ValueSet to code(s) in another ValueSet. The type/strength of connection is described by the <b>equivalence</b> property. The equivalence expresses that the two elements are exactly the same, wider than, narrower than or the two concepts aren't related at all. The full list of equivalence values is available in the <a href="http://hl7.org/fhir/R4B/valueset-concept-map-equivalence.html">ConceptMap Equivalence</a> ValueSet.</p>
                         
                         <h5 id="cm-sample-data-mapping">Step 2: Sample data mapping</h5>
                         <p>As an example, let's say you have a (very poorly designed) ValueSet based on a CodeSystem representing employee presence at work with just three codes: present, not-present, and sick which is in use by your system. You start importing data from a new system which has finer granularity:</p>
@@ -176,7 +176,7 @@
     <td>jury-duty</td>
   </tr>
 </table>
-                    <p>Your task is to create a FHIR ConceptMap translating the codes your receive to codes you already have, making use of the available <a href="http://hl7.org/fhir/STU3/valueset-concept-map-equivalence.html">equivalence</a> values. You come up with this sample mapping that maps in the direction from the new system to your system's ValueSet:</p>
+                    <p>Your task is to create a FHIR ConceptMap translating the codes your receive to codes you already have, making use of the available <a href="http://hl7.org/fhir/R4B/valueset-concept-map-equivalence.html">equivalence</a> values. You come up with this sample mapping that maps in the direction from the new system to your system's ValueSet:</p>
 
                         <table class="table-fill">
   <tr>
@@ -243,14 +243,15 @@
                         <h5 id="cm-advanced-features">Step 4: Advanced features</h5>
                         <p>ConceptMap is actually pretty powerful, and besides the basic code-to-code mapping described above, it also supports the following usecases:</p>
                         <ul>
-                            <li>Mapping one code to many codes at once given the same equivalence property (by utilising multiple <a href="http://hl7.org/fhir/STU3/conceptmap-definitions.html#ConceptMap.group.element.target">target</a> properties within one <a href="http://hl7.org/fhir/STU3/conceptmap-definitions.html#ConceptMap.group.element">element</a> property)</li>
-                            <li>Having a dependency for a mapping, a mapping could only be applicable if a selected element exists in the data and has the specified value (see <a href="http://hl7.org/fhir/STU3/conceptmap-definitions.html#ConceptMap.group.element.target.dependsOn">dependsOn</a>)</li>
+                            <li>Mapping one code to many codes at once given the same equivalence property (by utilising multiple <a href="http://hl7.org/fhir/R4B/conceptmap-definitions.html#ConceptMap.group.element.target">target</a> properties within one <a href="http://hl7.org/fhir/R4B/conceptmap-definitions.html#ConceptMap.group.element">element</a> property)</li>
+                            <li>Having a dependency for a mapping, a mapping could only be applicable if a selected element exists in the data and has the specified value (see <a href="http://hl7.org/fhir/R4B/conceptmap-definitions.html#ConceptMap.group.element.target.dependsOn">dependsOn</a>)</li>
+                            <li>If a code does not match one of the rows in the ConceptMap's group, then the map can define an <a href="http://hl7.org/fhir/R4B/conceptmap.html#unmapped">unmapped</a> behaviour: either return the original source code, provide a fixed target code, or delegate to another ConceptMap</li>
                         </ul>
                         <h5 id="cm-translate-operation">Step 5: $translate operation</h5>
-							<p>The <a href="http://hl7.org/fhir/STU3/conceptmap-operations.html#translate">$translate</a> operation allows you to utilise a FHIR terminology server to get an equivalent code as specified by a ConceptMap mapping. To use it, you need to provide the ConceptMap you'd like to use, the input code and its CodeSystem, and the valueset you'd like to get a translation from. Try the <a href="http://hl7.org/fhir/STU3/conceptmap-operations.html#translate">$translate</a> operation on the four sample resources uploaded above (a CodeSystem, two ValueSets, and a ConceptMap) via Postman using this template:</p>
-                            <p><code>https://ontoserver.csiro.au/stu3-latest/ConceptMap/ConceptMap/servers-conceptmap-id/$translate?code=my-code&system=codes-codesystem&target=target-valueset</code></p>
+							<p>The <a href="http://hl7.org/fhir/R4B/conceptmap-operations.html#translate">$translate</a> operation allows you to utilise a FHIR terminology server to get an equivalent code as specified by a ConceptMap mapping. To use it, you need to provide the ConceptMap you'd like to use, the input code and its CodeSystem, and the valueset you'd like to get a translation from. Try the <a href="http://hl7.org/fhir/R4B/conceptmap-operations.html#translate">$translate</a> operation on the four sample resources uploaded above (a CodeSystem, two ValueSets, and a ConceptMap) via Postman using this template:</p>
+                            <p><code>https://r4.ontoserver.csiro.au/fhir/ConceptMap/ConceptMap/servers-conceptmap-id/$translate?code=my-code&system=codes-codesystem&target=target-valueset</code></p>
 							<p>Here's a sample code you could try, once you've uploaded your conceptmap to a terminology server of choice:</p>
-                            <p><code>https://ontoserver.csiro.au/stu3-latest/ConceptMap/a912ee54-30e8-4a1a-8f2a-1a4337aaf69c/$translate?code=in-office&system=urn:uuid:bb6efb79-2b93-4569-a51e-6fcf103b6e9a&target=urn:uuid:a5f94e22-ddba-474e-80e3-b067d9c27a55</code></p>
+                            <p><code>https://r4.ontoserver.csiro.au/fhir/ConceptMap/a912ee54-30e8-4a1a-8f2a-1a4337aaf69c/$translate?code=in-office&system=urn:uuid:bb6efb79-2b93-4569-a51e-6fcf103b6e9a&target=urn:uuid:a5f94e22-ddba-474e-80e3-b067d9c27a55</code></p>
 							<p>That's it! You're done for now.</p>
                     </div>
                 </section>
