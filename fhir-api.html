@@ -416,7 +416,7 @@ public class Main {
         // context - create this once, as it's an expensive operation
         // see http://hapifhir.io/doc_intro.html
         FhirContext ctx = FhirContext.forR4();
-        String serverBaseUrl = "http://sqlonfhir-stu3.azurewebsites.net/fhir";
+        String serverBaseUrl = "http://hapi.fhir.org/baseR4";
 
         Patient ourPatient = new Patient();
 
@@ -551,7 +551,7 @@ public class Main {
         // context - create this once, as it's an expensive operation
         // see http://hapifhir.io/doc_intro.html
         FhirContext ctx = FhirContext.forR4();
-        String serverBaseUrl = "http://sqlonfhir-stu3.azurewebsites.net/fhir";
+        String serverBaseUrl = "http://hapi.fhir.org/baseR4";
 
         // increase timeouts since the server might be powered down
         // see http://hapifhir.io/doc_rest_client_http_config.html
@@ -624,7 +624,7 @@ namespace SimpleFhir
     static void Main(string[] args)
     {
       //The fhir server end point address      
-      string ServiceRootUrl = "http://sqlonfhir-stu3.azurewebsites.net/fhir";     
+      string ServiceRootUrl = "http://hapi.fhir.org/baseR4";     
       //Create a client to send to the server at a given endpoint.
       var FhirClient = new Hl7.Fhir.Rest.FhirClient(ServiceRootUrl);      
       // increase timeouts since the server might be powered down
@@ -695,7 +695,7 @@ public class Main {
         // context - create this once, as it's an expensive operation
         // see http://hapifhir.io/doc_intro.html
         FhirContext ctx = FhirContext.forR4();
-        String serverBaseUrl = "http://sqlonfhir-stu3.azurewebsites.net/fhir";
+        String serverBaseUrl = "http://hapi.fhir.org/baseR4";
 
         // increase timeouts since the server might be powered down
         // see http://hapifhir.io/doc_rest_client_http_config.html
